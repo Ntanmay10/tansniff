@@ -1,6 +1,6 @@
 # Tansniff
 
-Tansniff is a lightweight network packet sniffer built using Python and the Scapy library. It captures and analyzes network packets, allowing users to inspect packet data for investigation.
+Tansniff is a lightweight network packet sniffer built using Python and the Scapy library. It captures and analyzes network packets, allowing users to inspect and save packet data for future investigation.
 
 ## Features
 
@@ -33,6 +33,7 @@ The script will:
 
 1. Capture a limited number of packets (10 seconds).
 2. Display packet summaries in the terminal.
+3. Save packets summary in CSV file for future investigation
 
 ---
 
