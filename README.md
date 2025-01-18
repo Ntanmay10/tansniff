@@ -4,7 +4,7 @@ Tansniff is a lightweight network packet sniffer built using Python and the Scap
 
 ## Features
 
-- Capture live network packets.
+- Capture live network packets and generating pcap file.
 - Display packet summaries in a readable format.
 - Customizable capture settings (packet count, timeout, filters, etc.).
 
@@ -33,7 +33,7 @@ The script will:
 
 1. Capture a limited number of packets (10 seconds).
 2. Display packet summaries in the terminal.
-3. Save packets summary in CSV file for future investigation
+3. Save packets summary in CSV, TXT, and PCAP files for future investigation.
 
 ---
 
