@@ -14,13 +14,13 @@ clrScr()
 
 def sniffPckt():
     global packets
-    packets = sniff(timeout=18, promisc=True)
+    packets = sniff(timeout=5, promisc=True)
     print("Network sniffing done....☠️")
 
 
 def sniffMsg():
     startTime = time.time()
-    while time.time() - startTime < 16:
+    while time.time() - startTime < 5:
         print("Sniffing network.....🔍")
         time.sleep(2)
 
@@ -35,8 +35,9 @@ wrpcap(f"data/pcap/{name}.pcap", packets)
 
 data = pd.DataFrame(packets)
 
-data.to_csv(f"data/csv/{name}.csv")
-
+data.to_csv(
+    f"data/csv/{name}.csv",
+)
 for i, packet in enumerate(packets):
     print(f"Packet{i}:{packet.summary()}")
     src_ip = packet["IP"].src if packet.haslayer("IP") else "N/A"
