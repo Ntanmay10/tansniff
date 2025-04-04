@@ -1,54 +1,42 @@
-# Tansniff
+# 🚀 Tansniff - Network Packet Sniffer
 
-Tansniff is a lightweight network packet sniffer built using Python and the Scapy library. It captures and analyzes network packets, allowing users to inspect and save packet data for future investigation.
+Tansniff is an easy-to-use tool that captures network traffic. It helps you see what data is being sent and received over your network.
 
-## Features
+## 📥 How to Install
 
-- Capture live network packets and generating pcap file.
-- Display packet summaries in a readable format.
-- Customizable capture settings (packet count, timeout, filters, etc.).
+1. **Download Tansniff**
+   ```bash
+   git clone https://github.com/Ntanmay10/tansniff.git
+   cd tansniff
+   ```
+2. **Install the required software**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Installation
+## 🛠️ How to Use
 
-### Clone the repository
+To start sniffing network packets, run the following command:
 ```bash
-git clone https://github.com/Ntanmay10/tansniff.git
-cd tansniff
+python tansniff.py -t <time-in-seconds>
 ```
-### Install required dependencies
+For example, to capture packets for 10 seconds:
 ```bash
-pip install -r requirements.txt
+python tansniff.py -t 10
 ```
 
----
+## 📂 What You'll Get
 
-### Usage
+After running the tool, Tansniff will create these files:
 
-```bash
-# Run the script
-python tansniff.py
-```
+- 📁 **PCAP file** (`data/pcap/<filename>.pcap`) - A file you can open in Wireshark for in-depth analysis.
+- 📁 **CSV file** (`data/csv/<filename>.csv`) - A table with captured packet details.
+- 📁 **TXT file** (`data/txt/<filename>.txt`) - A simple text file showing key network details like IP addresses and protocols.
 
-The script will:
+## ⚠️ Important Information
 
-1. Capture a limited number of packets (10 seconds).
-2. Display packet summaries in the terminal.
-3. Save packets summary in CSV, TXT, and PCAP files for future investigation.
+- 🔴 You may need **admin permissions** to run this tool.
+- 🔴 Make sure you follow **local laws and network policies** before using Tansniff.
+- 🔴 Only use this tool **on networks you have permission to monitor**.
 
----
-
-### Configuration
-```python
-# Change packet count and timeout
-packets = sniff(count=20, timeout=15)
-```
-
-### Add a filter to capture specific traffic (e.g., TCP)
-```python
-packets = sniff(count=20, timeout=15, filter="tcp")
-```
-
-
-## Disclaimer
-
-Using this tool may require administrative privileges and should be done in compliance with local laws and network policies. Always obtain proper authorization before sniffing network traffic.
+🚀 **Enjoy exploring your network!** 🎉
