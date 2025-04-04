@@ -1,34 +1,41 @@
 from scapy.all import sniff, wrpcap
 import pandas as pd
-import os, time, threading
+import os, time, threading, sys
+
+if len(sys.argv) != 3 or sys.argv[1] != "-t":
+    print("Usage: python main.py -t <time-to-sniff>")
+    exit(1)
+else:
+    tts = int(sys.argv[2])
 
 
 def clrScr():
-    os.system("cls" if os.name == 'nt' else "clear")
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 clrScr()
+print(tts)
 name = input("Enter your file name: ")
 clrScr()
 
 
-def sniffPckt():
+def sniffPckt(tts):
     global packets
-    packets = sniff(timeout=5, promisc=True)
+    packets = sniff(timeout=tts, promisc=True)
     print("Network sniffing done....☠️")
 
 
-def sniffMsg():
+def sniffMsg(tts):
     startTime = time.time()
-    while time.time() - startTime < 5:
+    while time.time() - startTime < tts:
         print("Sniffing network.....🔍")
         time.sleep(2)
 
 
-sniffThread = threading.Thread(target=sniffPckt)
+sniffThread = threading.Thread(target=sniffPckt, args=(tts,))
 sniffThread.start()
 
-sniffMsg()
+sniffMsg(tts)
 sniffThread.join()
 
 wrpcap(f"data/pcap/{name}.pcap", packets)
