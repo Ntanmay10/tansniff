@@ -19,8 +19,9 @@ def clrScr():
 
 
 clrScr()
-print(tts)
 name = input("Enter your file name: ")
+if not name:
+    name = f"capture_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 clrScr()
 
 
