@@ -1,11 +1,21 @@
-from scapy.all import sniff, wrpcap, IP, TCP, UDP, ICMP
-import os, time, threading, sys
 import csv
+from pyfiglet import Figlet
 from datetime import datetime
+import os, time, threading, sys
+from scapy.all import sniff, wrpcap, IP, TCP, UDP, ICMP
 
 os.makedirs("data/pcap", exist_ok=True)
 os.makedirs("data/txt", exist_ok=True)
 os.makedirs("data/csv", exist_ok=True)
+
+
+def clrScr():
+    os.system("cls" if os.name == "nt" else "clear")
+
+clrScr()
+fig = Figlet(font='slant')
+print(fig.renderText('tansniff'))
+print("\t\t\t\t--by chikoo")
 
 if len(sys.argv) != 3 or sys.argv[1] != "-t":
     print("Usage: python main.py -t <time-to-sniff>")
@@ -13,12 +23,7 @@ if len(sys.argv) != 3 or sys.argv[1] != "-t":
 else:
     tts = int(sys.argv[2])
 
-
-def clrScr():
-    os.system("cls" if os.name == "nt" else "clear")
-
-
-clrScr()
+# clrScr()
 name = input("Enter your file name: ")
 if not name:
     name = f"capture_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
